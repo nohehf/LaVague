@@ -33,6 +33,8 @@ class BaseDriver(ABC):
             init_function if init_function is not None else self.default_init_code
         )
         self.driver = self.init_function()
+        # TODO(@nohehf): Quickfix self.page is the one for playwright. This should be agnostic
+        self.page = self.driver
 
         # Flag to check if the page has been previously scanned to avoid erasing screenshots from previous scan
         self.previously_scanned = False
